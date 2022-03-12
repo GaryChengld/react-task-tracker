@@ -13,8 +13,8 @@
       "reminder": true
     },
     {
-      "text": "Test",
-      "day": "Test",
+      "text": "new task",
+      "day": "task name",
       "reminder": true,
       "id": 3
     }
