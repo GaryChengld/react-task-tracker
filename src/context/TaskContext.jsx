@@ -6,6 +6,10 @@ export const TaskProvider = ({ children }) => {
   const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([])
 
+  useEffect(() => {
+    fetchTasks()
+  }, [])
+
   // Fetch Tasks
   const fetchTasks = async () => {
     const res = await fetch('http://localhost:5000/tasks')
@@ -62,10 +66,6 @@ export const TaskProvider = ({ children }) => {
 
     setTasks(tasks.map((task) => (task.id === id ? { ...task, reminder: data.reminder } : task)))
   }
-
-  useEffect(() => {
-    fetchTasks()
-  }, [])
 
   return (
     <TaskContext.Provider

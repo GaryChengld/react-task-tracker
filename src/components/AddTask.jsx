@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import TaskContext from '../context/TaskContext'
 
-const AddTask = ({ onAdd }) => {
+const AddTask = () => {
+  const { addTask } = useContext(TaskContext)
   const [text, setText] = useState('')
   const [day, setDay] = useState('')
   const [reminder, setReminder] = useState(false)
@@ -12,7 +14,7 @@ const AddTask = ({ onAdd }) => {
       alert('Please add a task')
       return
     }
-    onAdd({ text, day, reminder })
+    addTask({ text, day, reminder })
     setText('')
     setDay('')
     setReminder(false)
